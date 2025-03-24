@@ -1,23 +1,23 @@
 import java.util.Random;
 
 public class ComputerPlayer {
-    private String currentPlayer;
     private String icon;
     private Board board;
+    private Random random;
 
     public ComputerPlayer(Board board, String icon) {
         this.board = board;
         this.icon = icon;
+        this.random = new Random();
     }
 
     public void makeMove() {
-        // Simple AI: find the first empty cell and make a move
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (board.updateCell(i, j, icon)) {
-                    return;
-                }
-            }
-        }
+        int row, col;
+        Button[][] buttons = board.getButtons();
+        do {
+            row = random.nextInt(3);
+            col = random.nextInt(3);
+        } while (!buttons[row][col].getText().isEmpty());
+        buttons[row][col].setText(icon);
     }
 }
