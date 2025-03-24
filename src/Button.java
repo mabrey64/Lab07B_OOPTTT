@@ -1,9 +1,12 @@
+import javax.swing.*;
+
 public class Button
 {
     private String icon;
     private int row;
     private int col;
     private boolean isClicked = false;
+    JButton button = new JButton();
 
     public Button(int row, int col) {
         this.row = row;
@@ -18,11 +21,28 @@ public class Button
         return icon;
     }
 
-    public int getRow() {
-        return row;
+    public void Click() {
+        isClicked = true;
     }
 
-    public int getCol() {
-        return col;
+    public void GetButton() {
+        button.setText(icon);
+    }
+
+    public boolean isClicked() {
+        return isClicked;
+    }
+
+    public void addActionListener() {
+        button.addActionListener(e -> {
+            if (!isClicked) {
+                setIcon("X");
+                Click();
+                GetButton();
+            }
+        });
+    }
+
+    public void ResetButton() {
     }
 }
