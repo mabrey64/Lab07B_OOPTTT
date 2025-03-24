@@ -1,12 +1,15 @@
 public class Player
 {
-    String icon;
+    String currentPlayer;
 
-    public void setIcon(String icon) {
-        this.icon = icon;
+    public String getCurrentPlayer()
+    {
+        return currentPlayer;
     }
 
-    public String getIcon() {
-        return icon;
+    public Player(String currentPlayer)
+    {
+        this.currentPlayer = currentPlayer;
     }
+
 }
